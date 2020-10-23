@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-//import AddForm from '../AddForm/AddForm'
+import Frameform from '../Frameform/Frameform'
 import "./Card.css";
 
 const Card = (props) => {
@@ -20,7 +20,7 @@ const Card = (props) => {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <div>
-          {/* <AddForm /> */}
+        <Frameform />
         </div>
       </Modal.Body>
       <Modal.Footer>

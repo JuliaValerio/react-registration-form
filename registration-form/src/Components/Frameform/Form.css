@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    margin: 15px;
+}
+
+.container div{
+    width: 85%;
+    margin-right: 5px;
+}
+
+.line{
+    border: 0.5px solid rgba(122, 118, 118, 0.481);
+    height: auto;
+    margin-right: 15px;
+}
+
+.picture-card img{
+   width: 30%;
+}
