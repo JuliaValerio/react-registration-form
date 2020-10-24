@@ -20,3 +20,15 @@
 .picture-card img{
    width: 30%;
 }
+
+input[type="file"] {
+    display: none;
+}
+
+.icons{
+    margin-right: 10px;
+}
+
+.name {
+    margin: 10px 0;
+}

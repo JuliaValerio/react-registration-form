@@ -1,12 +1,25 @@
 import React, { useState } from "react"
+//import * as firebase from "firebase/app";
 import { useStorage } from '../../Hooks/useStorage'
 import "./Form.css";
-import { Button, Form } from 'react-bootstrap/'
+import { Button, Form, Col, Row } from 'react-bootstrap/'
+//import RangeSlider from 'react-bootstrap-range-slider';
+import { faUserPlus, faCamera } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Formulario = () => {
+    const [value, setValue] = React.useState(50);
+
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
     const types = ["image/png", "image/jpeg", "image/jpg"];
+
+    const [name, setName] = useState("")
+    const [age, setAge] = useState("")
+    const [cpf, setCpf] = useState("")
+    const [status, setStatus] = useState("")
+    const [city, setCity] = useState("")
+    const [uf, setUf] = useState("")
 
     const handleChange = (e) => {
         let selectedFile = e.target.files[0];
@@ -48,12 +61,6 @@ const Formulario = () => {
                 <div className="picture-card">
                     <Form.Group controlId="formBasicPicture">
                         <Form.Label></Form.Label>
-                        <Button
-                            className='mt-5 my-3'
-                            type="file" onChange={handleChange}
-                            variant="primary" >
-                            Carregar sua foto
-                        </Button>
                         <div>
                             {/* error message */}
                             {error && <p>{error}</p>}
@@ -61,59 +68,83 @@ const Formulario = () => {
                             {/* upload progress */}
                             {file && <p>{progress}% uploaded</p>}
 
-                            {/* image url */}
+                            {/* image url
                             {url && (
                                 <p>
                                     <b>File url: </b>
                                     <a href={url}>{url}</a>
                                 </p>
-                            )}
+                            )} */}
 
                             {/* image display */}
                             {url && <img alt="" src={url}></img>}
                         </div>
+                        <label className="mt-5 btn btn-primary">
+                            <FontAwesomeIcon className="icons" icon={faCamera} />
+                            Carregue sua foto
+                            <input type="file" onChange={handleChange} />
+                        </label>
+
                     </Form.Group>
                 </div>
                 <span className='line'></span>
                 <div className="info-card">
-                    {/* <Form.Group controlId="formBasicName">
-                        <Form.Label>Nome</Form.Label>
-                        <Form.Control
-                            value={name}
-                            name="name"
-                            onChange={e => setName(e.currentTarget.value)}
-                            type="text"
-                            placeholder="Nome" />
+                    <Form.Group controlId="formBasicName">
+                        <Form.Row>
+                            <Col>
+                                <Form.Control placeholder="First name" />
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Last name" />
+                            </Col>
+                        </Form.Row>
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicIdade">
+                    {/* <Form.Group as={Row}>
+                        <Col xs="9">
+                            <RangeSlider
+                                value={value}
+                                onChange={e => setValue(e.target.value)}
+                            />
+                        </Col>
+                        <Col xs="3">
+                            <Form.Control value={value} />
+                        </Col>
+                    </Form.Group> */}
+{/* 
+                    <Form.Group as={Row} controlId="formBasicIdade">
                         <Form.Label>Idade</Form.Label>
-                        <Form.Control
-                            placeholder="Idade"
-                            value={age}
-                            name="age"
-                            onChange={e => setAge(e.currentTarget.value)}
-                            type="number" />
-                    </Form.Group>
+
+                        <Col xs="9">
+                            <RangeSlider
+                                value={value}
+                                onChange={e => setValue(e.target.value)}
+                            />
+                        </Col>
+                        <Col xs="3">
+                            <Form.Control value={value} />
+                        </Col>
+                    </Form.Group> */}
 
                     <Form.Group controlId="formBasicCpf">
-                        <Form.Label>cpf</Form.Label>
+                        <Form.Label>Email</Form.Label>
                         <Form.Control
-                            placeholder="cpf"
                             value={cpf}
                             name="cpf"
                             onChange={e => setCpf(e.currentTarget.value)}
-                            type="number" />
+                            type="email"
+                            placeholder="Email" />
                     </Form.Group>
 
                     <Form.Group controlId="formBasicStatus">
-                        <Form.Label>Estado</Form.Label>
+                        <Form.Label>Telefone</Form.Label>
                         <Form.Control
-                            placeholder="uf"
-                            value={uf}
-                            name="uf"
-                            onChange={e => setUf(e.currentTarget.value)}
                             type="text"
+                            placeholder="(99)9999-9999"
+                            name="telefone"
+                            onkeyup="mask(this, mtel)"
+                            maxlength="15"
+                            required
                         />
                     </Form.Group>
 
@@ -136,9 +167,10 @@ const Formulario = () => {
                             onChange={e => setStatus(e.currentTarget.value)}
                             type="text"
                         />
-                    </Form.Group> */}
+                    </Form.Group>
                     <Button
                         variant="success" type="submit">
+                        <FontAwesomeIcon className="icons" icon={faUserPlus} />
                         salvar
                     </Button>
                 </div>
