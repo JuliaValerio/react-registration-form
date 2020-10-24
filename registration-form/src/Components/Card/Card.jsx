@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import Frameform from '../Frameform/Frameform'
+import Frameform from '../Frameform/Frameform';
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Card.css";
@@ -19,7 +19,7 @@ const Card = (props) => {
     >
       <Modal.Body>
       <Modal.Header closeButton>
-          <Modal.Title><h2> <FontAwesomeIcon className="icons" icon={faUsers} /> Cadastre um novo usuario !</h2></Modal.Title>
+          <Modal.Title><h2> <FontAwesomeIcon className="icons" icon={faUsers} /><FontAwesomeIcon icon="coffee" /> Cadastre um novo usuario !</h2></Modal.Title>
         </Modal.Header>
         <div>
         <Frameform />

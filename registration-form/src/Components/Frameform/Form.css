@@ -4,11 +4,11 @@
     justify-content: space-between;
     width: 95%;
     margin: 15px;
+    
 }
 
 .container div{
-    width: 85%;
-    margin-right: 5px;
+    width: 100%;
 }
 
 .line{
@@ -29,6 +29,24 @@ input[type="file"] {
     margin-right: 10px;
 }
 
-.name {
-    margin: 10px 0;
+.name{
+    width: 100%;
+}
+
+.range{
+    width: 100%;
+    margin: 15px;
+}
+
+.slider{
+    margin-top: 7px !important;
+}
+
+.age input{
+    width: 50%;
+    margin-left: 20px;
+}
+
+.form-label{
+    margin-top: 5px !important;
 }
