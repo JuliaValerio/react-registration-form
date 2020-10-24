@@ -1,5 +1,5 @@
-import * as firebase from "firebase/app";
-import "firebase/storage";
+import * as firebase from 'firebase';
+import 'firebase/firestore';
 
 // Replace this object with your firebase credentials
 const firebaseConfig = {

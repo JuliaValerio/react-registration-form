@@ -19,6 +19,7 @@ const Formulario = () => {
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [sendNews, setSendNews] = useState("")
+    const { progress, url } = useStorage(file);
 
     const handleChange = (e) => {
         let selectedFile = e.target.files[0];
@@ -33,7 +34,7 @@ const Formulario = () => {
             }
         }
     };
-//functions for fields address
+    //functions for fields address
     const [uf, setUf] = useState('AC');
     const [listUf, setListUf] = useState([]);
     const [city, setCity] = useState('');
@@ -67,7 +68,7 @@ const Formulario = () => {
         }
     }, [uf]);
 
-//Submit form
+    //Submit form
     const onSubmit = e => {
         console.log("funciona")
         e.preventDefault()
@@ -82,13 +83,14 @@ const Formulario = () => {
                 phone,
                 city,
                 uf,
-                sendNews
+                sendNews,
+                url
             })
-            .then(() => setFirstName(""), setLastName(""), setEmail(""), setPhone(""), setAge(""), setCity(""), setUf(""), setSendNews(""))
+            .then(() => setFile(url), setFirstName(""), setLastName(""), setEmail(""), setPhone(""), setAge(""), setCity(""), setUf(""), setSendNews(""))
     }
 
 
-    const { progress, url } = useStorage(file);
+
 
     return (
         <>
@@ -128,15 +130,15 @@ const Formulario = () => {
                         <Form.Row>
                             <Form.Label>Nome</Form.Label>
                             <Col>
-                                <Form.Control 
-                                onChange={e => setFirstName(e.currentTarget.value)}
-                                className='name' 
-                                placeholder="Primeiro Nome" />
+                                <Form.Control
+                                    onChange={e => setFirstName(e.currentTarget.value)}
+                                    className='name'
+                                    placeholder="Primeiro Nome" />
                             </Col>
                             <Col>
                                 <Form.Control
-                                onChange={e => setLastName(e.currentTarget.value)}
-                                placeholder="Sobrenome" />
+                                    onChange={e => setLastName(e.currentTarget.value)}
+                                    placeholder="Sobrenome" />
                             </Col>
                         </Form.Row>
                     </Form.Group>
@@ -165,11 +167,11 @@ const Formulario = () => {
 
                     <Form.Group controlId="formBasicStatus">
                         <Form.Label>Telefone</Form.Label>
-                        <MaskedFormControl 
-                        onChange={e => setPhone(e.currentTarget.value)}
-                        type='text' 
-                        name='phoneNumber' 
-                        mask='(11) 1111-1111' />
+                        <MaskedFormControl
+                            onChange={e => setPhone(e.currentTarget.value)}
+                            type='text'
+                            name='phoneNumber'
+                            mask='(11) 1111-1111' />
                     </Form.Group>
 
                     <Form.Group controlId="formBasicState">
@@ -190,7 +192,7 @@ const Formulario = () => {
                     <Form.Group controlId="formBasicNews">
                         <InputGroup className="mb-3">
                             <InputGroup.Prepend>
-                                <InputGroup.Checkbox onChange={e => setSendNews(e.currentTarget.value)}aria-label="Checkbox for following text input" /><p className='my-2 mx-1'>Desejo receber novidades por e-mail.</p>
+                                <InputGroup.Checkbox onChange={e => setSendNews(e.currentTarget.value)} aria-label="Checkbox for following text input" /><p className='my-2 mx-1'>Desejo receber novidades por e-mail.</p>
                             </InputGroup.Prepend>
                         </InputGroup>
                     </Form.Group>
