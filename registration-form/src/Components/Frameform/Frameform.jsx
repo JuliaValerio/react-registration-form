@@ -105,14 +105,6 @@ const Formulario = () => {
                             {/* upload progress */}
                             {file && <p>{progress}% uploaded</p>}
 
-                            {/* image url
-                            {url && (
-                                <p>
-                                    <b>File url: </b>
-                                    <a href={url}>{url}</a>
-                                </p>
-                            )} */}
-
                             {/* image display */}
                             {url && <img alt="" src={url}></img>}
                         </div>

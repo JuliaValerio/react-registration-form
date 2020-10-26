@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import Frameform from '../Frameform/Frameform';
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
@@ -6,11 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Card.css";
 
 const Card = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
 
   return (
     <>
      <React.StrictMode>
       <Modal
+      show={show} onHide={handleClose}
       closeButton
       {...props}
       size="lg"
